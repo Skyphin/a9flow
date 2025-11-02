@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import Heading from "./components/Heading";
 import ActionPanel from "./components/ActionPanel";
 import { Layout } from "./components/Layout";
-import CommentsFilter from "./components/comments/CommentsFilter";
-import Comments from "./components/comments/Comments";
 import { useUrl } from "./hooks/useUrl";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -48,8 +46,6 @@ function App() {
   return (
     <Layout>
       <Heading />
-      <CommentsFilter />
-      <Comments />
       <ActionPanel />
     </Layout>
   );
