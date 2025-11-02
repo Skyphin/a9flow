@@ -1,16 +1,12 @@
 {
   "name": "skyphin-ui",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "start-backend": "node ./mock-backend/index.ts",
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "codegen": "graphql-codegen",
-    "codegen:watch": "graphql-codegen --watch"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.15",

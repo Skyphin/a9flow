@@ -1,7 +1,0 @@
-query GetVotes($url: String!) {
-  votes(url: $url) {
-    url
-    upvoteCount
-    downvoteCount
-  }
-}
