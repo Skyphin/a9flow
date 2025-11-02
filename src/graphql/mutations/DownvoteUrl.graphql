@@ -1,7 +1,0 @@
-mutation DownvoteUrl($url: String!) {
-  downvoteUrl(url: $url) {
-    url
-    upvoteCount
-    downvoteCount
-  }
-}

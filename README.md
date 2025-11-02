@@ -1,1 +1,3 @@
-# skyphin-ui
+# Skyphin
+
+Agentic web browsing extension

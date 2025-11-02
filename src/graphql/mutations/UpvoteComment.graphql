@@ -1,7 +1,0 @@
-mutation UpvoteComment($commentId: ID!) {
-  upvoteComment(commentId: $commentId) {
-    id
-    upvoteCount
-    downvoteCount
-  }
-}
