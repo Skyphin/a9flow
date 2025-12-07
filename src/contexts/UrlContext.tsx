@@ -3,6 +3,7 @@ import React, { createContext, useState, ReactNode } from "react";
 interface UrlState {
   title: string;
   url: string;
+  favIconUrl?: string;
   loading: boolean;
   error: string | null;
 }
@@ -10,8 +11,13 @@ interface UrlState {
 interface UrlContextType {
   state: UrlState;
   setTitle: (title: string) => void;
+  setFavIconUrl: (url: string) => void;
   setUrl: (url: string) => void;
-  setTitleAndUrl: (data: { title: string; url: string }) => void;
+  setTabPropertis: (data: {
+    title: string;
+    url: string;
+    favIconUrl: string;
+  }) => void;
 }
 
 const initialState: UrlState = {
@@ -37,8 +43,21 @@ export const UrlProvider: React.FC<{ children: ReactNode }> = ({
     setState((prev) => ({ ...prev, url }));
   };
 
-  const setTitleAndUrl = (data: { title: string; url: string }) => {
-    setState((prev) => ({ ...prev, title: data.title, url: data.url }));
+  const setFavIconUrl = (url: string) => {
+    setState((prev) => ({ ...prev, url }));
+  };
+
+  const setTabPropertis = (data: {
+    title: string;
+    url: string;
+    favIconUrl: string;
+  }) => {
+    setState((prev) => ({
+      ...prev,
+      title: data.title,
+      url: data.url,
+      favIconUrl: data.favIconUrl,
+    }));
   };
 
   return (
@@ -47,7 +66,8 @@ export const UrlProvider: React.FC<{ children: ReactNode }> = ({
         state,
         setTitle,
         setUrl,
-        setTitleAndUrl,
+        setFavIconUrl,
+        setTabPropertis,
       }}
     >
       {children}

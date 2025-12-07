@@ -1,8 +1,54 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
+import { useUrl } from "../hooks/useUrl";
 
 export const ActionPanel = memo(() => {
+  const { state } = useUrl();
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const adjustTextareaHeight = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto"; // Reset height to auto
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Set height to scrollHeight
+    }
+  };
+
   return (
-    <div className="px-3 py-3 flex items-center gap-2 mt-auto bg-white border-t border-gray-100"></div>
+    <div className="sticky dark:bg-zinc-800 z-10 bottom-0 w-full">
+      <div className="px-2 pb-2 w-full">
+        <div className="w-full h-full flex flex-col rounded-xl dark:bg-zinc-700 border-gray-200 dark:border-gray-800 border-1">
+          <div className="flex basis-1 items-start gap-2 p-2">
+            <div className="rounded-full flex items-center justify-center">
+              <img
+                rel="icon"
+                width={25}
+                height={25}
+                src={`${state.favIconUrl || "/Globe_icon.svg"}`}
+                onError={(event) => {
+                  const target = event.currentTarget as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = "/Globe_icon.svg";
+                }}
+              />
+            </div>
+            <span className="truncate text-sm mt-0.5 text-gray-700 dark:text-gray-400">
+              {state.title}
+            </span>
+          </div>
+          <div className="flex basis-3 flex-1 w-full">
+            {/* Input field */}
+            <div className="flex flex-1 w-full items-center overflow-hidden dark:bg-[#2c2c2c] rounded-xl border border-gray-200 dark:border-gray-700 dark:focus-within:border-gray-600 transition-shadow">
+              <textarea
+                ref={textareaRef}
+                placeholder="Ask anything"
+                className="bg-transparent w-full max-h-80 px-4 py-3 flex-1 outline-none text-gray-900 dark:text-gray-200 placeholder-gray-500 overflow-scroll text-sm resize-none"
+                rows={1}
+                onInput={adjustTextareaHeight}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 });
 

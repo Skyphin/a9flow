@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Skyphin",
+  "name": "A9flow",
   "version": "1.0",
-  "description": "Skyphin - agentic web assistant",
+  "description": "A9flow - agentic web assistant",
   "host_permissions": [
     "<all_urls>"
   ],
@@ -11,14 +11,16 @@
     "default_icon": {
       "16": "extension/icons/16.png",
       "32": "extension/icons/32.png",
-      "48": "extension/icons/48.png"
+      "64": "extension/icons/64.png"
     }
   },
   "icons": {
     "16": "extension/icons/16.png",
     "32": "extension/icons/32.png",
-    "48": "extension/icons/48.png",
-    "128": "extension/icons/128.png"
+    "64": "extension/icons/64.png",
+    "128": "extension/icons/128.png",
+    "512": "extension/icons/512.png",
+    "1024": "extension/icons/1024.png"
   },
   "permissions": [
     "tabs",
@@ -28,6 +30,7 @@
     "service_worker": "extension/service-workers/background.js"
   },
   "side_panel": {
-    "default_path": "index.html"
+    "default_path": "index.html",
+    "default_width": 400
   }
 }
